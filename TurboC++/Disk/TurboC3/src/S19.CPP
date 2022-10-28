@@ -1,0 +1,26 @@
+#include<stdio.h>//Display data in matrix form 2d array//
+#include<conio.h>
+void main()
+{
+	clrscr();
+	int ar[3][3],i,j,s=0;
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+		{
+			printf("\n Enter the [%d][%d element in 3*3 matrix",i,j);
+			scanf("%d",&ar[i][j]);
+		}
+	}
+	printf("\n data of 3*3 matrix are:");
+	{
+		for(i=0;i<3;i++)
+		{
+			for(j=0;j<3;j++)
+			{
+				printf("\t %d",ar[i][j]);
+			}
+		}
+	}
+	getch();
+}

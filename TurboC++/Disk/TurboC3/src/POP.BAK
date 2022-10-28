@@ -1,0 +1,88 @@
+#include<stdio.h>
+#include<conio.h>
+#define size 5
+
+int info [5];
+int  top=-1;
+void push();
+void pop();
+void peep();
+void rev_peep();
+void main()
+{
+	int ch;
+	do
+	{
+		clrscr();
+		printf("\n1.push\n2.pop\n3.peep\n4.rev-peep");
+		printf("\n0.Exit \nenter your choice");
+		scanf("%d",&ch);
+		switch(ch)
+		{
+		case 1:push();
+			break;
+		case 2:pop();
+			break;
+		case 3:peep();
+			break;
+		case 4:rev_peep();
+			break;
+
+
+		}
+		getch();
+		}while(ch!=0);
+	}
+	void push()
+	{
+	int x;
+	if(top==size-1)
+	{
+	printf("\n stack is full");
+	return;
+	}
+	printf("\n Enter a value");
+	scanf("%d",&x);
+	top++;
+	info[top]=x;
+	}
+	void pop()
+	{
+		int x;
+		if(top==-1)
+		{
+		printf("\n stack is empty");
+		return;
+		}
+		x=info[top];
+		top--;
+		printf("\n poped no=%d",x);
+	}
+	void peep()
+	{
+		int i;
+		if(top==-1)
+		{
+		printf("\n stack is empty");
+		return;
+		}
+		printf("\n content \n");
+		for(i=top;i>=0;i--)
+		{
+		printf("\n%d",info[i]);
+		}
+	}
+	void rev_peep()
+	{
+		int i;
+		if(top==-1)
+		{
+		printf("\n stack is empty");
+		return;
+		}
+		printf("\n content reverse peep");
+		for(i=0;i<=top;i++)
+		{
+		printf("%4d",info[i]);
+		}
+	}

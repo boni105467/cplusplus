@@ -1,0 +1,95 @@
+#include<stdio.h>
+#include<conio.h>
+int queue[5];
+int front=-1,rear= -1;
+
+void insert()
+{
+if(rear>3)
+	{
+	printf("\n queue over flow");
+	}
+else
+	{
+	if(front==-1)
+		{
+		front=front+1;
+		rear=rear=rear+1;
+		}
+	else
+		{
+		rear=rear+1;
+		}
+		printf("\n Enter number to be insert in queue:-");
+		scanf("\n %d",&queue[rear]);
+		printf("\n one data insert in queue");
+	}
+}
+void display()
+{
+if(front==-1)
+	{
+	printf("\n Queue Under flow...");
+	}
+else
+	{
+       int	i=front;
+	while(i<=rear)
+	{
+	printf("\n %d",queue[i]);
+	i++;
+	}
+	}
+
+
+}
+void deleteQ()
+{
+if(front==-1)
+	{
+	printf("\n Queue Under flow....");
+	}
+else
+	{
+	front=front+1;
+	if(front>rear)
+		{
+		front=rear=-1;
+		}
+		printf("\n One Data Delete In Queue");
+	}
+}
+void main()
+	{
+	clrscr();
+	int ch;
+	do
+		{
+		clrscr();
+		printf("\n 1.Insert");
+		printf("\n 2.Delete");
+		printf("\n 3.Display");
+		printf("\n Enter Your Choice:-");
+		scanf("%d",&ch);
+		switch(ch)
+		{
+		case 1:
+		insert();
+		getch();
+		break;
+		case 2:
+		deleteQ();
+		getch();
+		break;
+		case 3:
+		display();
+		getch();
+		break;
+		default:
+		printf("\n invalid choice");
+		}
+		}while(ch!=0);
+		getch();
+	}
+
+

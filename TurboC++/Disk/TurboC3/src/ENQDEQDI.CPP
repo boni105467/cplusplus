@@ -1,0 +1,90 @@
+#include<stdio.h>//simple or modify queue using linklist//
+#include<conio.h>
+#include<alloc.h>
+struct node
+{
+	int info;
+	node *next;
+};
+void enqueue();
+void dequeue();
+void display();
+void rev_display();
+node *start=NULL;
+void main()
+{
+	int ch;
+	do
+	{
+		clrscr();
+		printf("\n1.enqueue\n2.dequeue\n3.display\n4.rev_display");
+		printf("\n0.exit\nenter your choice");
+		scanf("%d",&ch);
+		switch(ch)
+		{
+		case 1:enqueue();break;
+		case 2:dequeue();break;
+		case 3:display();break;
+		case 4:rev_display();break;
+		}
+		getch();
+	}while(2);
+ }
+ void enqueue()
+ {
+	node *t,*cur;
+	t=(node *)malloc(sizeof(node));
+	printf("\n enter a value");
+	scanf("%d",&t->info);
+	t->next=NULL;
+	if(start==NULL)
+	{
+	start=t;
+	}
+	else
+	{
+	cur=start;
+	while(cur->next!=NULL)
+	{
+	cur=cur->next;
+	}
+	cur->next=t;
+	}
+ }
+ void dequeue()
+ {
+	node *t;
+	if(start==NULL)
+	{
+	printf("\n Queue is empty");
+	return;
+	}
+	t=start;
+	start=t->next;
+	printf("\n deleted no=%d",t->info);
+	free(t);
+ }
+ void display()
+ {
+	node *p;
+	if(start==NULL)
+	{
+	printf("\n Queue is empty");
+	return;
+	}
+	printf("\n content \n");
+	p=start;
+	while(p!=NULL)
+	{
+	printf("%4d",p->info);
+	p=p->next;
+	}
+ }
+ void rev_display(node *p)
+ {
+	if(p->next!=NULL)
+	{
+	 rev_display(p->next);
+	}
+	printf("%4d",p->info);
+ }

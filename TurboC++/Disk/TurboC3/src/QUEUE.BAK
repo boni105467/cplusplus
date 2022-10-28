@@ -1,0 +1,104 @@
+#include<stdio.h>
+#include<conio.h>
+#include<alloc.h>
+//insert delet and tranvers
+struct Queue
+{
+	int n;
+	Queue *next;
+};
+void insert(Queue **front,Queue **rear,int a)
+{
+	Queue *nw;
+	nw=(Queue*)malloc(sizeof(Queue));
+	if(nw==NULL)
+	{
+	printf("mamory is not allocated");
+	}
+	else
+	{
+		nw->n=a;
+		nw->next=NULL;
+		if(*front==NULL)
+		{
+			*front=*rear=nw;
+		}
+		else
+		{
+			(*rear)->next=nw;
+			*rear=nw;
+			printf("one node insert in queue");
+		}
+	}
+}
+void delete_Q(Queue **front,Queue **rear)
+{
+Queue *t;
+if(*front==NULL)
+{
+printf("Queue is empty");
+}
+else
+{
+t=*front;
+*front=t->next;
+free(t);
+if(*front==NULL)
+*rear=NULL;
+printf("one node deleted");
+}
+}
+void display(Queue *front)
+{
+	Queue *t;
+	if(front==NULL)
+	{
+		printf("Queue is empty");
+	}
+	else
+	{
+	t=front;
+	while(t!=NULL)
+	{
+	printf("\n %d",t->n);
+	t=t->next;
+	}
+	}
+}
+void main()
+{
+	clrscr();
+	int ch,a;
+	Queue *front=NULL,*rear=NULL;
+	do
+	{
+		clrscr();
+		printf("\n1.insert\n2.delete\n3.display\n0.exit");
+		printf("\n Enter your choice");
+		scanf("%d",&ch);
+		switch(ch)
+		{
+		case 1:
+		printf("\n enter number to be insert in Queue");
+		scanf("%d",&a);
+		insert(&front,&rear,a);
+		getch();
+		break;
+		case 2:
+	     //	printf("\n Enter the number to be deleted in Queue");
+	       //	scanf("%d",&a);
+		delete_Q(&front,&rear);
+		getch();
+		break;
+		case 3:
+		display(front);
+		getch();
+		break;
+		default:
+		printf("\n invalis choice....");
+		}
+		}while(ch!=0);
+		getch();
+		}
+
+

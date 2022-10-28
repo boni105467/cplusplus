@@ -1,0 +1,82 @@
+#include<stdio.h>
+#include<conio.h>
+void read (int[],int);
+void print(int[],int);
+void sort(int[],int);
+void partion(int[],int,int);
+void Quick(int[],int);
+void createheap(int[],int);
+void heapsort(int[],int);
+void main()
+{
+	int a[100],b[100];
+	int n,an,bn,ch;
+	do
+	{
+		printf("\n1.read\n2.print\n3.sort\n4.partion");
+		printf("\n5.Quick\n6.createheap\n7.heapsort");
+		printf("\n0.Exit");
+		printf("Enter your choice");
+		scanf("%d",&ch);
+		switch(ch)
+		{
+		case 1:printf("\n how many no");
+			scanf("%d",&ch);
+			read(a,n);
+			break;
+		case 2:printf(a,n);break;
+		case 3:Quick(a,o,n-1);
+			break;
+		case 4:createheap(a,n);
+			heapsort(a,n);
+			break;
+		case 5:partion(a,n,b);
+			bn=n/2;
+			an=n-bn;
+			sort(a,an)
+			sort(b,bn);
+			merge(a,an,b,bn);
+			break;
+		case 0:Exit(0);
+		}
+		getch();
+		}while(2);
+	}
+	void read(int a[],int n)
+	{
+		int i;
+		 for(i=0;i<n;i++)
+		 {
+			printf("\n Enter a value");
+			scanf("%d",&a[i]);
+		 }
+	}
+	void print(int a[],int n)
+	{
+		int i;
+		printf("\n content \n");
+		for(i=0;i<n;i++)
+		{
+		printf("%4d",a[i]);
+		}
+	}
+	void sort(int a[],int n)
+	{
+		int i,j,x;
+		for(i=0;i<n-1;i++)
+		{
+		for(j=i+1;j<n;j++)
+		{
+		if(a[i]>a[j])
+		{
+		x=a[i];
+		a[i]=a[j];
+		a[j]=x;
+		}
+		}
+		}
+	}
+	void partion(int a[],int n,int b[])
+	{
+		int i,j;
+		i=n%2=0
